@@ -294,7 +294,7 @@ int main() {
 		}
 
 		if (dk == 1) {
-			for (int i = 0; i < n; i++) {
+			for (int i = 0; dk != 0; i++) {
 				if (_kbhit() == 1) {
 					button = _getch();
 					if (revers == 0) {
@@ -310,7 +310,7 @@ int main() {
 				darkness(x, y, map); g++;
 				if (map[y][x + 1] == '$' && map[y][x - 1] == '$')death = 1;
 				if (map[y + 1][x] == '$' && map[y - 1][x] == '$')death = 1;
-				if (death == 1) {
+				if (death == 1&&god_mode==0) {
 					break;
 				}
 			}
@@ -322,7 +322,7 @@ int main() {
 			break;
 		}
 		
-	}//запускаем все потоки
+	}
 	if (death == 1 && god_mode == 0) {
 		center();
 		std::cout << "GAME OVER";
